@@ -33,8 +33,9 @@
       {
         "newlinesBetween": "always",
         "groups": [
-          "/^react/",
+          "/^react$/",
           "module",
+          "/^@components/",
           ["parent", "sibling", "index"]
         ],
         "alphabetize": { "order": "asc", "ignoreCase": true }
