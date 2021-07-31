@@ -7,6 +7,7 @@ import { SideBar } from '@components/SideBar';
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const options = {
+  colors: [theme.colors.green[700], theme.colors.green[900]],
   chart: {
     toolbar: {
       show: false,
@@ -23,25 +24,17 @@ const options = {
     enabled: false,
   },
   tooltip: {
-    enabled: false,
+    theme: 'dark',
   },
   xaxis: {
-    type: 'datetime' as const,
+    type: 'category' as const,
     axisBorder: {
       color: theme.colors.gray[600],
     },
     axisTicks: {
       color: theme.colors.gray[600],
     },
-    categories: [
-      '2021-07-30T00:00:00.000Z',
-      '2021-07-31T00:00:00.000Z',
-      '2021-08-01T00:00:00.000Z',
-      '2021-08-02T00:00:00.000Z',
-      '2021-08-03T00:00:00.000Z',
-      '2021-08-04T00:00:00.000Z',
-      '2021-08-05T00:00:00.000Z',
-    ],
+    categories: ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab', 'Dom'],
   },
   fill: {
     opacity: 0.3,
