@@ -35,7 +35,7 @@
         "groups": [
           "/^react$/",
           "module",
-          ["/^@components/", "/^@contexts/"],
+          ["/^@components/", "/^@services/", "/^@contexts/"],
           ["parent", "sibling", "index"]
         ],
         "alphabetize": { "order": "asc", "ignoreCase": true }

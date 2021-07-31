@@ -19,7 +19,8 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
-      "@contexts/*": ["src/contexts/*"]
+      "@contexts/*": ["src/contexts/*"],
+      "@services/*": ["src/services/*"]
     },
     "jsx": "preserve"
   },
