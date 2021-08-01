@@ -24,11 +24,11 @@ import { RiAddLine, RiEyeLine, RiPencilLine } from 'react-icons/ri';
 import { Header } from '@components/Header';
 import { Pagination } from '@components/Pagination';
 import { SideBar } from '@components/SideBar';
-import { prefetchUser } from '@services/hooks/users/prefetchUser';
-import { useUsers } from '@services/hooks/users/useUsers';
+import { useUsers, prefetchUser } from '@hooks/users/useUsers';
 
 export default function UserList() {
   const [page, setPage] = useState(1);
+
   const { data, isLoading, isFetching, error } = useUsers(page);
 
   const isWideVersion = useBreakpointValue({ base: false, lg: true });

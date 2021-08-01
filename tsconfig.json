@@ -20,7 +20,9 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@contexts/*": ["src/contexts/*"],
-      "@services/*": ["src/services/*"]
+      "@services/*": ["src/services/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@utils/*": ["src/utils/*"]
     },
     "jsx": "preserve"
   },

@@ -14,15 +14,15 @@ type SidBarContextData = UseDisclosureReturn;
 const SidBarContext = createContext({} as SidBarContextData);
 
 export function SidBarDrawerProvider({ children }: SidBarDrawerProviderProps) {
-  const disclosure = useDisclosure();
+  const { onClose, ...disclosure } = useDisclosure();
   const { asPath } = useRouter();
 
   useEffect(() => {
-    disclosure.onClose();
-  }, [disclosure, asPath]);
+    onClose();
+  }, [onClose, asPath]);
 
   return (
-    <SidBarContext.Provider value={disclosure}>
+    <SidBarContext.Provider value={{ onClose, ...disclosure }}>
       {children}
     </SidBarContext.Provider>
   );

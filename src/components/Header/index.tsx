@@ -1,11 +1,17 @@
 import React from 'react';
 
-import { IconButton, Flex, useBreakpointValue, Icon } from '@chakra-ui/react';
+import {
+  IconButton,
+  Flex,
+  useBreakpointValue,
+  Icon,
+  Box,
+} from '@chakra-ui/react';
 import { RiMenuLine } from 'react-icons/ri';
 
 import { useSidBarDrawer } from '@contexts/SidBarContext';
 
-import { Logo } from './Logo';
+import { Logo } from '../Logo';
 import { NotificationsNav } from './NotificationsNav';
 import { Profile } from './Profile';
 import { SearchBox } from './SearchBox';
@@ -37,7 +43,9 @@ export function Header() {
         />
       )}
 
-      <Logo />
+      <Box w="64">
+        <Logo />
+      </Box>
 
       {isWideVersion && <SearchBox />}
 

@@ -3,6 +3,8 @@ import dynamic from 'next/dynamic';
 
 import { Header } from '@components/Header';
 import { SideBar } from '@components/SideBar';
+import { setupApiClient } from '@services/authApi/setupApiClient';
+import { withSSRAuth } from '@utils/withSSRAuth';
 
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
@@ -78,3 +80,15 @@ export default function Dashboard() {
     </Flex>
   );
 }
+
+export const getServerSideProps = withSSRAuth(async ctx => {
+  const authApiClient = setupApiClient(ctx);
+
+  const response = await authApiClient.get('/me');
+
+  console.log(response.data);
+
+  return {
+    props: {},
+  };
+});

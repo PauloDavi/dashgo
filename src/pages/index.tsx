@@ -5,6 +5,9 @@ import * as yup from 'yup';
 
 import { Input } from '@components/Form/Input';
 import { InputPassword } from '@components/Form/InputPassword';
+import { Logo } from '@components/Logo';
+import { useAuth } from '@contexts/AuthContext';
+import { withSSRGuest } from '@utils/withSSRGuest';
 
 interface SingInFormData {
   email: string;
@@ -26,8 +29,10 @@ export default function SingIn() {
     resolver: yupResolver(singInFormSchema),
   });
 
-  const handleSingIn: SubmitHandler<SingInFormData> = data => {
-    console.log(data);
+  const { singIn } = useAuth();
+
+  const handleSingIn: SubmitHandler<SingInFormData> = async data => {
+    await singIn(data);
   };
 
   return (
@@ -43,6 +48,10 @@ export default function SingIn() {
         flexDir="column"
       >
         <Stack spacing="4">
+          <Flex justify="center">
+            <Logo />
+          </Flex>
+
           <Input
             label="E-mail"
             type="email"
@@ -70,3 +79,9 @@ export default function SingIn() {
     </Flex>
   );
 }
+
+export const getServerSideProps = withSSRGuest(async () => {
+  return {
+    props: {},
+  };
+});
